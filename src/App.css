@@ -1,1 +1,30 @@
+*{
+  padding: 0;
+  margin:0;
+}
+.nav-wrapper {
+  background: #31b575
+}
 
+.nav-container {
+  display: flex;
+}
+
+.top-nav {
+  padding: 1em auto !important
+}
+.nav-link  {
+  display: inline;
+  margin: 0;
+  padding:5px 6px;
+  font: 20px;;
+}
+.welcome-card-title {
+  background: #31b575;
+  color:whitesmoke
+}
+.active {
+  color:teal;
+  background-color:#227f52;
+  border-radius: 5%;
+}

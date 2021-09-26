@@ -1,0 +1,3 @@
+export const GETUSERS = 'GETUSERS';
+export const GETQUESTIONS = 'GETQUESTIONS';
+export const GETAUTHEDUSER = 'GETAUTHEDUSER';
