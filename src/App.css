@@ -3,28 +3,88 @@
   margin:0;
 }
 .nav-wrapper {
-  background: #31b575
+  background: #1f9d6a
 }
 
-.nav-container {
-  display: flex;
-}
 
-.top-nav {
-  padding: 1em auto !important
-}
 .nav-link  {
   display: inline;
   margin: 0;
-  padding:5px 6px;
-  font: 20px;;
+  padding: 0.5ch;
 }
-.welcome-card-title {
-  background: #31b575;
-  color:whitesmoke
-}
+
+
 .active {
   color:teal;
-  background-color:#227f52;
+  background-color:#0e4830;
   border-radius: 5%;
+  padding: 0.5ch
+}
+
+.QuestionTypes {
+  margin: 0px auto;
+  display: inline;
+}
+.QuestionTypeSpan {
+  margin: 1rem;
+  margin-bottom: 90px !important
+}
+.QuestionTypeSpan:hover {
+  border-bottom: 2px ridge;
+  cursor: pointer;
+}
+
+.questions li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+  margin: 0px auto;
+}
+
+.questions {
+  margin: 0px auto;
+  /* min-width: 500px; */
+}
+
+.card-body {
+  padding:1ch;
+}
+
+.card-title {
+  background-color: #1f9d6a !important
+}
+
+.question-avatar {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+img strong {
+  display: block;
+}
+
+.text-light {
+  color:seashell !important
+}
+
+.would-you-rather-image {
+  width: 100%;
+  height: auto;
+}
+
+.select-User{
+  margin:20px !important;
+}
+
+.welcome-form-select {
+  border: 1px ridge #1f9d6a;
+  border-radius: 5%;
+  box-shadow: #0e4830;
+  color: seashell;
+  background-color: #1f9d6a;
 }

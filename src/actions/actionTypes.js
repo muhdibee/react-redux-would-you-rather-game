@@ -1,3 +1,3 @@
-export const GETUSERS = 'GETUSERS';
-export const GETQUESTIONS = 'GETQUESTIONS';
-export const GETAUTHEDUSER = 'GETAUTHEDUSER';
+export const GET_USERS = 'GET_USERS';
+export const GET_QUESTIONS = 'GET_QUESTIONS';
+export const GET_AUTHEDUSER = 'GET_AUTHEDUSER';

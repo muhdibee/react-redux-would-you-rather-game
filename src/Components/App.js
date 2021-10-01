@@ -8,15 +8,16 @@ import LeaderBoard from './LeaderBoard';
 
 
 function App() {
+
   return (
     <Fragment>
       <BrowserRouter>
         <Navigationbar />
         <Switch>
           <Route exact path='/' component= { WelcomePage } />
-          <Route exact path='/Home' component= { Home } />
-          <Route exact path='/NewQuestion' component= { NewQuestion } />
-          <Route exact path='/LeaderBoard' component= { LeaderBoard } />
+          <Route exact path='/home' component = { Home } />
+          <Route exact path='/newQuestion' component= { NewQuestion } />
+          <Route exact path='/leaderBoard' component= { LeaderBoard } />
         </Switch>
      </BrowserRouter>
     </Fragment>
