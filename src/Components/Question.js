@@ -5,7 +5,7 @@ class Question extends Component {
 
     render(){
 
-        const {questions} = this.props;
+        const {questions, authedUser} = this.props;
         const questionId = this.props.questionId;
 
         return (
@@ -18,7 +18,7 @@ class Question extends Component {
                         </div>
                             <div className= 'card-body'>
                                 <p className='center'>Would you rather?</p>
-                                <p>...{questions[questionId].optionOne.text}...</p>
+                                <p>{questions[questionId].optionOne.text}...</p>
                             </div>
                     </div>
                 }
@@ -29,6 +29,7 @@ class Question extends Component {
 
 function mapStateToProps (state, {id}) {
     return {
+        authedUser: state.authedUser,
         questions: state.questions,
         questionId: id
     }

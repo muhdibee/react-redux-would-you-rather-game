@@ -54,7 +54,7 @@ class WelcomePage extends Component {
         const {authedUser} = this.props;
 
         if (authedUser){
-            return <Redirect to='/home' component= {Home} > {console.log("Authed User:", this.props.authedUser)}</Redirect>
+            return <Redirect to='/home'> {console.log("Authed User:", this.props.authedUser)}</Redirect>
 
         }
 

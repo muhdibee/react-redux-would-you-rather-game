@@ -45,8 +45,8 @@ class Home extends React.Component {
         else return (
             <div>
                 {/* <Navigationbar /> */}
-                <h2 className="text-center text-sucess mb-2">ERROR: Please <Link to ='/'>select</Link>  a user to continue.</h2>
-                <h6 className="text-center text-sucess">Click <Link to ='/'>here</Link> to go back.</h6>
+                <h2 className="text-center text-success text-opacity-50 mb-2">ERROR: Please <Link to ='/'>select</Link>  a user to continue.</h2>
+                <h6 className="text-center text-success text-opacity-50">Click <Link to ='/'>here</Link> to go back.</h6>
             </div>
         )
 

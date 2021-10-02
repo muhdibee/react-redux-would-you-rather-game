@@ -1,11 +1,15 @@
 *{
   padding: 0;
   margin:0;
+  /* color: #1f9d6a; */
 }
 .nav-wrapper {
-  background: #1f9d6a
-}
+  border-bottom: 2px ridge teal;
 
+}
+.logo:hover {
+  text-decoration: none !important;
+}
 
 .nav-link  {
   display: inline;
@@ -16,8 +20,9 @@
 
 .active {
   color:teal;
-  background-color:#0e4830;
-  border-radius: 5%;
+  border-bottom: 1px ridge teal;
+  /* background-color:#0e4830; */
+  /* border-radius: 5%; */
   padding: 0.5ch
 }
 
@@ -38,6 +43,10 @@
   list-style-type: none;
   padding: 10px;
   text-decoration: none;
+}
+
+.QuestionTypes span {
+  color: #1f9d6a;
 }
 
 .center {
