@@ -5,29 +5,19 @@ class Question extends Component {
 
     render(){
 
-        const { authedUser, users, questions } = this.props;
+        const { authedUser, users, questions, questionId, type} = this.props;
         const questionsId = Object.keys(questions);
-        console.log("authedUser:", authedUser)
         const answeredQuestionsId = Object.keys(users[authedUser].answers);
-        console.log( "answeredQuestionsId:", answeredQuestionsId )
-        // const answeredQuestions = Object.entries( users[authedUser].answers )
+        console.log("authedUser", authedUser)
+        console.log("users", users);
+        console.log("questionsId", questionsId)
+        console.log("answeredQuestionsId", answeredQuestionsId)
 
 
 
         return (
                 <div>
-                    {/* {
-                        questionsId.map((questionsId) => {
-                            if(answeredQuestionsId.includes(questionsId))
-                            return (
-                                <div>
-                                    <h6>{questions[questionsId].optionOne.text}</h6>
-                                    <p></p>
-                                 </div>
-                            )
-                        })
-                    }
- */}
+                    <h6>{questions[questionId].optionOne.text}</h6>
                  </div>
             // <div className = 'wrapper'>
             //     <ul>
@@ -57,11 +47,13 @@ class Question extends Component {
     }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps (state, {questionId, type}) {
     return {
         authedUser: state.authedUser,
         users: state.users,
         questions: state.questions,
+        questionId: questionId,
+        type: type,
     }
 }
 

@@ -1,12 +1,14 @@
 import { combineReducers }   from 'redux';
 import authedUserReducer from './authedUserReducer';
-import questionsReducer from './questionReducer';
+import isAnsweredReducer from './isAnsweredReducer';
+import questionsReducer from './questionsReducer';
 import usersReducer from './usersReducer';
 
 const rootReducer = combineReducers({
     authedUser: authedUserReducer,
     users: usersReducer,
-    questions: questionsReducer
+    questions: questionsReducer,
+    isAnswered: isAnsweredReducer,
 })
 
 export default rootReducer
