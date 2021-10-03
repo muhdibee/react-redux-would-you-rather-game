@@ -1,12 +1,14 @@
 import * as api from '../util/_DATA'
 import getQuestions from './questions'
+import getUsers from './users'
 
 const handleInitialData = () => {
     return (dispatch, getState) => {
-        return(
-            api._getQuestions()
-            .then((questions) => dispatch(getQuestions(questions)))
-        )
+        return api.getInitialData()
+               .then(({users, questions}) => {
+                    dispatch(getUsers(users));
+                    dispatch(getQuestions(questions))
+            })
     }
 }
 

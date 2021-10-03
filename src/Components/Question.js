@@ -5,33 +5,63 @@ class Question extends Component {
 
     render(){
 
-        const {questions, authedUser} = this.props;
-        const questionId = this.props.questionId;
+        const { authedUser, users, questions } = this.props;
+        const questionsId = Object.keys(questions);
+        console.log("authedUser:", authedUser)
+        const answeredQuestionsId = Object.keys(users[authedUser].answers);
+        console.log( "answeredQuestionsId:", answeredQuestionsId )
+        // const answeredQuestions = Object.entries( users[authedUser].answers )
+
+
 
         return (
-            <div className = 'wrapper'>
-                {
-                    <div className = 'card'>
-                        <div className = ' col-12 bg-light card-title center'>{console.log('From Question component', questionId)}
-                            {/* <img className="question-avatar col-12" alt='User-Avatar' src={'https://media.istockphoto.com/photos/businesswoman-portrait-on-white-picture-id615279718?k=20&m=615279718&s=612x612&w=0&h=D0gAjhLC0XgxWyi19zRC4HXSl2g81bytiIwezQn9ZgQ='} /> */}
-                            <strong className='text-light'>Asked by {questions[questionId].author}</strong>
-                        </div>
-                            <div className= 'card-body'>
-                                <p className='center'>Would you rather?</p>
-                                <p>{questions[questionId].optionOne.text}...</p>
-                            </div>
-                    </div>
-                }
-            </div>
+                <div>
+                    {/* {
+                        questionsId.map((questionsId) => {
+                            if(answeredQuestionsId.includes(questionsId))
+                            return (
+                                <div>
+                                    <h6>{questions[questionsId].optionOne.text}</h6>
+                                    <p></p>
+                                 </div>
+                            )
+                        })
+                    }
+ */}
+                 </div>
+            // <div className = 'wrapper'>
+            //     <ul>
+            //         {
+            //             questionsId.map((questionid) => {
+            //                 if (true){
+            //                     <li>
+            //                         <div className = 'card'>
+            //                             <div className = ' col-12 bg-light card-title center'>
+            //                                 {/* <img className="question-avatar col-12" alt='User-Avatar' src={'https://media.istockphoto.com/photos/businesswoman-portrait-on-white-picture-id615279718?k=20&m=615279718&s=612x612&w=0&h=D0gAjhLC0XgxWyi19zRC4HXSl2g81bytiIwezQn9ZgQ='} /> */}
+            //                                 <strong className='text-light'>Asked by {questions[questionsId].author}</strong>
+            //                             </div>
+            //                             <div className= 'card-body'>
+            //                                 <p className='center'>Would you rather?</p>
+            //                                 <p>{questions[questionsId].optionOne.text}...</p>
+            //                             </div>
+            //                         </div>
+            //                     </li>
+
+            //                 }
+            //                 else {<div>none</div>}
+            //             })
+            //         }
+            //     </ul>
+            // </div>
         )
     }
 }
 
-function mapStateToProps (state, {id}) {
+function mapStateToProps (state) {
     return {
         authedUser: state.authedUser,
+        users: state.users,
         questions: state.questions,
-        questionId: id
     }
 }
 

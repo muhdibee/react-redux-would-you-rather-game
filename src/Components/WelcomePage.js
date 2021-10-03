@@ -9,6 +9,7 @@ class WelcomePage extends Component {
 
     render() {
         const {authedUser} = this.props;
+        
         const setUser =(e) =>{
             const authedUser = e.target.value;
             this.props.dispatch(getAuthedUser(authedUser));
@@ -65,7 +66,6 @@ class WelcomePage extends Component {
 function mapStateToProps (state) {
 
     return {
-        state: state,
         authedUser: state.authedUser,
     }
 }

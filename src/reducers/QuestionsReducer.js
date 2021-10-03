@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes'
 
 
-const QuestionsReducer = (state = {}, action) => {
+const questionsReducer = (state = {}, action) => {
     switch(action.type){
         case actionTypes.GET_QUESTIONS:
             return {
@@ -11,4 +11,4 @@ const QuestionsReducer = (state = {}, action) => {
     }
 }
 
-export default QuestionsReducer
+export default questionsReducer;
