@@ -37,7 +37,12 @@ class Home extends React.Component {
                                                     {
                                                         questionsId.map((questionId) => {
                                                             if(answeredQuestionsId.includes(questionId))
-                                                                return <Question key={questionId} questionId = {questionId} />
+                                                                return(
+                                                                    <Link className="text-dark logo link-hover " to ={`/question/${questionId}`}>
+                                                                        <Question className="question" keyId={questionId} questionId = {questionId} />
+                                                                    </Link>
+                                                                )
+
                                                         })
                                                     }
                                                 </div>
@@ -48,7 +53,11 @@ class Home extends React.Component {
                                                     {
                                                         questionsId.map((questionId) => {
                                                             if(answeredQuestionsId.includes(questionId)) return null
-                                                            else return <Question key={questionId} questionId = {questionId} />
+                                                            else return (
+                                                                <Link className="text-dark logo link-hover " to ={`/question/${questionId}`}>
+                                                                    <Question className="question" keyId={questionId} questionId = {questionId} />
+                                                                </Link>
+                                                            )
                                                            })
                                                     }
                                                 </div>
@@ -62,8 +71,8 @@ class Home extends React.Component {
         }
         else return (
             <div>
-                <h2 className="text-center text-success text-opacity-50 mb-2">ERROR: Please <Link to ='/'>select</Link>  a user to continue.</h2>
-                <h6 className="text-center text-success text-opacity-50">Click <Link to ='/'>here</Link> to go back.</h6>
+                {/* <h2 className="text-center text-success text-opacity-50 mb-2">ERROR: Please <Link to ='/'>select</Link>  a user to continue.</h2> */}
+                <h6 className="text-center text-success text-opacity-50">Please Select a User to login. Click <Link to ='/'>here</Link> to login.</h6>
             </div>
         )
     }

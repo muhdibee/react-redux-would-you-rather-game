@@ -33,11 +33,11 @@ class WelcomePage extends Component {
                     <div className=' align-self-center col col-md-5'>
                         <div className='card m-0'>
                             <div className='card-title welcome-card-title'>
-                                <span><h5 className='p-2 text-center text-white'>Welcome To The Would You Rather Game</h5></span>
+                                <span><h5 className='p-2 text-center text-white'>Welcome To Would You Rather Game</h5></span>
                             </div>
                             <div className=' card-body' >
                                 <div className="center">
-                                    {/* <img alt="Welcome-page" className="would-you-rather-image img-fluid mb-1" src="https://parade.com/wp-content/uploads/2019/12/Would-You-Rather_Questions.jpg"/> */}
+                                    <img alt="Welcome-page" className="would-you-rather-image img-fluid mb-1" src="https://parade.com/wp-content/uploads/2019/12/Would-You-Rather_Questions.jpg"/>
                                         <i className="select-User text-success">Login...</i> <br/>
                                         <select className='center welcome-form-select mb-1' value={authedUser} onChange={(e) => setUser(e)}>
                                             <option className="text-white" disabled value =''>Select a User...</option>

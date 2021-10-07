@@ -7,14 +7,19 @@
   border-bottom: 2px ridge teal;
 
 }
-.logo:hover {
-  text-decoration: none !important;
+.link-hover:hover {
+  text-decoration: none;
 }
 
 .nav-link  {
   display: inline;
   margin: 0;
   padding: 0.5ch;
+}
+
+.nav-link:hover {
+  color:white;
+  ;
 }
 
 
@@ -32,11 +37,13 @@
 }
 .QuestionTypeSpan {
   margin: 1rem;
-  margin-bottom: 90px !important;
+  margin-bottom: 90px;
 }
 .QuestionTypeSpan:hover {
   border-bottom: 2px ridge;
   cursor: pointer;
+  color: #0c3f2a
+
 }
 
 .questions li {
@@ -56,16 +63,20 @@
 
 .questions {
   margin: 0px auto;
-  /* min-width: 500px; */
 }
 
 .card-body {
   padding:1ch;
 }
 
-.card-title {
+.welcome-card-title {
   background-color: #1f9d6a !important
 }
+
+.question-card-title {
+  background-color: #1f9d6a !important
+}
+
 
 .question-avatar {
   width: 100px;

@@ -1,8 +1,9 @@
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://media.istockphoto.com/photos/businesswoman-portrait-on-white-picture-id615279718?k=20&m=615279718&s=612x612&w=0&h=D0gAjhLC0XgxWyi19zRC4HXSl2g81bytiIwezQn9ZgQ=',
+    avatarURL: 'https://avatars.githubusercontent.com/u/11280159?v=4',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +15,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://media.istockphoto.com/photos/businesswoman-portrait-on-white-picture-id615279718?k=20&m=615279718&s=612x612&w=0&h=D0gAjhLC0XgxWyi19zRC4HXSl2g81bytiIwezQn9ZgQ=',
+    avatarURL: 'https://avatars.githubusercontent.com/u/2933430?v=4',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +25,7 @@ let users = {
   muhammad: {
     id: 'muhammad',
     name: 'Muhammad Ibrahim',
-    avatarURL: 'https://media.istockphoto.com/photos/businesswoman-portrait-on-white-picture-id615279718?k=20&m=615279718&s=612x612&w=0&h=D0gAjhLC0XgxWyi19zRC4HXSl2g81bytiIwezQn9ZgQ=',
+    avatarURL: 'https://avatars.githubusercontent.com/u/47622572?s=400&u=fe9d7fa712bc658da597d0a140e6fff826ef6053&v=4',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

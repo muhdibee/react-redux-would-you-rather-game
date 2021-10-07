@@ -15,6 +15,7 @@ function App() {
         <Navigationbar />
         <Switch>
           <Route exact path='/' component= { WelcomePage } />
+          <Route exact path='/welcomePage' component= { WelcomePage } />
           <Route path='/home' component = { Home } />
           <Route path='/newQuestion' component= { NewQuestion } />
           <Route path='/leaderBoard' component= { LeaderBoard } />

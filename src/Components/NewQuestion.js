@@ -1,9 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class NewQuestion extends React.Component {
     render() {
-        return <div>NewQuestion Page</div>;
+
+        const { authedUser, users, questions, isAnswered, dispatch} = this.props;
+
+
+        if (authedUser) {
+            return <div>NewQuestion Page</div>
+        }
+        else return <h6 className="text-center text-success text-opacity-50">Please Select a User to login. Click <Link to ='/'>here</Link> to login.</h6>
     }
 }
 
-export default NewQuestion;
+function mapStateToProps (state) {
+    return {
+        authedUser: state.authedUser,
+        users: state.users,
+        questions: state.questions,
+        isAnswered: state.isAnswered,
+    }
+}
+
+export default connect(mapStateToProps)(NewQuestion);
