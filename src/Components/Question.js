@@ -8,15 +8,15 @@ class Question extends Component {
         const { authedUser, users, questions, questionId, key} = this.props;
         const questionsId = Object.keys(questions);
         const answeredQuestionsId = Object.keys(users[authedUser].answers);
-        console.log("authedUser", authedUser)
-        console.log("users", users);
-        console.log("questionsId", questionsId)
-        console.log("answeredQuestionsId", answeredQuestionsId)
+        // console.log("authedUser", authedUser)
+        // console.log("users", users);
+        // console.log("questionsId", questionsId)
+        // console.log("answeredQuestionsId", answeredQuestionsId)
 
 
 
         return (
-                
+
                 <li key={key}>
                     <div className = 'card'>
                         <div className = ' col-12 bg-success card-title question-card-title'>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, NavLink, withRouter } from 'react-router-dom';
-import userAvatar from '../util/images/pngwing1.com';
+import { Link, NavLink, withRouter,Redirect } from 'react-router-dom';
+import WelcomePage from './WelcomePage';
 
 class Navigationbar extends Component {
 
@@ -11,15 +11,16 @@ class Navigationbar extends Component {
 
         function logout(e){
             e.preventDefault();
+            return <Redirect to='/' Component={WelcomePage}/>
             history.push('/welcomePage')
         }
 
         return (
-            <div className='mb-4 nav-wrapper text-success'>
+            <div className='mb-3 nav-wrapper text-success'>
                 <div className='nav-container container py-3'>
                     <div className='row'>
-                        <span className='col-10 col-md-8 col-lg-6'><h3><Link to='/' className='text-success logo link-hover'>Would You Rather</Link></h3></span>
-                        <nav className='text-success ml-auto mr-2'>
+                        <span className='col-10 col-md-8 col-lg-4'><h4><Link to='/' exact className='text-success logo link-hover'>Would You Rather</Link></h4></span>
+                        <nav className='text-success ml-auto mr-auto pt-5  top-nav'>
                             <ul className='top-nav-ul'>
                                 <li className='nav-link'><NavLink to='/home' activeClassName='nav-active' className='text-success nav-link'> Home</NavLink></li>
                                 <li className='nav-link'><NavLink to='/newQuestion' activeClassName='nav-active' className='text-success nav-link'> New Question</NavLink></li>
@@ -28,10 +29,10 @@ class Navigationbar extends Component {
                         </nav>
                         {
                             authedUser ?
-                            <span className="">
-                                <div className = "center"><img src={users[authedUser].avatarURL} alt="user avatar" style={{width:"60px", height: "60px", borderRadius:"50%"}} /></div>
-                                <i>{users[authedUser].id}</i>
-                                <Link className="text-success nav-link" onclick = {(e) => logout(e)}> - Logout</Link>
+                            <span className="mb-1">
+                                <div className = "center"><img src={users[authedUser].avatarURL} alt="user avatar" style={{width:"50px", height: "50px", borderRadius:"50%"}} /></div>
+                                <i>{users[authedUser].name}</i>
+                                <i className="text-success nav-link" onclick = {(e) => logout(e)}> - Logout</i>
                             </span>
                             : ""
 

@@ -33,12 +33,12 @@ class Home extends React.Component {
                                         {
                                             isAnswered
                                             ? ( <div>
-                                                    <h4 className="text-center text-success"><u>Answered Questions</u></h4>
+                                                    <h4 className="text-center text-success"><u>Answered</u></h4>
                                                     {
                                                         questionsId.map((questionId) => {
                                                             if(answeredQuestionsId.includes(questionId))
                                                                 return(
-                                                                    <Link className="text-dark logo link-hover " to ={`/question/${questionId}`}>
+                                                                    <Link className="text-dark logo link-hover " to ={`/questions/${questionId}`}>
                                                                         <Question className="question" keyId={questionId} questionId = {questionId} />
                                                                     </Link>
                                                                 )
@@ -49,12 +49,12 @@ class Home extends React.Component {
                                             )
                                             :(
                                                 <div>
-                                                    <h4 className="text-center text-success"><u>Unanswered Questions</u></h4>
+                                                    <h4 className="text-center text-success"><u>Unanswered</u></h4>
                                                     {
                                                         questionsId.map((questionId) => {
                                                             if(answeredQuestionsId.includes(questionId)) return null
                                                             else return (
-                                                                <Link className="text-dark logo link-hover " to ={`/question/${questionId}`}>
+                                                                <Link className="text-dark logo link-hover " to ={`/questions/${questionId}`}>
                                                                     <Question className="question" keyId={questionId} questionId = {questionId} />
                                                                 </Link>
                                                             )

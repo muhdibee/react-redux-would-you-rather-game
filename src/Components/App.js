@@ -5,6 +5,7 @@ import WelcomePage from './WelcomePage';
 import Home from './Home'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard';
+import selectedQuestion from './selectedQuestion';
 
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
         <Switch>
           <Route exact path='/' component= { WelcomePage } />
           <Route exact path='/welcomePage' component= { WelcomePage } />
-          <Route path='/home' component = { Home } />
+          <Route exact path='/home' component = { Home } />
           <Route path='/newQuestion' component= { NewQuestion } />
+          <Route path='/questions/:id' component= {selectedQuestion}/>
           <Route path='/leaderBoard' component= { LeaderBoard } />
         </Switch>
      </BrowserRouter>

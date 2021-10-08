@@ -4,7 +4,8 @@
   /* color: #1f9d6a; */
 }
 .nav-wrapper {
-  border-bottom: 2px ridge teal;
+  border-bottom: 1px ridge teal;
+  padding-bottom: 0px !important;
 
 }
 .link-hover:hover {
@@ -107,4 +108,19 @@ img strong {
   box-shadow: #0e4830;
   color: seashell;
   background-color: #1f9d6a;
+}
+
+.top-nav{
+  /* padding-top: 6ch;
+  padding-left: 2ch; */
+}
+
+.selected-question-form {
+  border: 1px ridge;
+  padding: 2px;
+}
+
+.selected-question-form .btn{
+  background-color: #1f9d6a;
+  /* color: white; */
 }
