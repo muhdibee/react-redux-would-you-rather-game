@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes'
 
- const getAuthedUser = (authedUser) => {
+export const getAuthedUser = (authedUser) => {
 
     return {
         type: actionTypes.GET_AUTHEDUSER,
@@ -8,4 +8,9 @@ import * as actionTypes from './actionTypes'
     }
 }
 
-export default getAuthedUser;
+export const removeAuthedUser = (authedUser) => {
+
+    return {
+        type: actionTypes.REMOVE_AUTHEDUSER,
+    }
+}

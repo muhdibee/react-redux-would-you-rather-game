@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, NavLink, withRouter,Redirect } from 'react-router-dom';
+import { Link, NavLink, withRouter, Redirect, Route } from 'react-router-dom';
+import { removeAuthedUser } from '../actions/authedUser';
+import LeaderBoard from './LeaderBoard';
 import WelcomePage from './WelcomePage';
 
 class Navigationbar extends Component {
 
     render() {
 
-        const { authedUser, users, questions, questionId, history} = this.props;
+        const { authedUser, users, questions, questionId, dispatch, history} = this.props;
 
         function logout(e){
-            e.preventDefault();
-            return <Redirect to='/' Component={WelcomePage}/>
-            history.push('/welcomePage')
-        }
+            dispatch(removeAuthedUser());
+            return (
+                <Redirect to='/' component={WelcomePage}/>
+                )
+            }
 
         return (
             <div className='mb-3 nav-wrapper text-success'>
@@ -32,10 +35,9 @@ class Navigationbar extends Component {
                             <span className="mb-1">
                                 <div className = "center"><img src={users[authedUser].avatarURL} alt="user avatar" style={{width:"50px", height: "50px", borderRadius:"50%"}} /></div>
                                 <i>{users[authedUser].name}</i>
-                                <i className="text-success nav-link" onclick = {(e) => logout(e)}> - Logout</i>
+                                <i className="text-succes logout" onClick = {(e) => logout(e)}> - Logout</i>
                             </span>
                             : ""
-
                         }
                     </div>
                 </div>
@@ -51,6 +53,7 @@ function mapStateToProps (state, {questionId}) {
         users: state.users,
         questions: state.questions,
         questionId: questionId,
+
     }
 }
 

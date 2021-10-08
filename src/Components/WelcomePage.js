@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router';
-import getAuthedUser from '../actions/authedUser';
+import {getAuthedUser} from '../actions/authedUser';
 import handleInitialData from '../actions/shared';
 import Home from './Home';
 

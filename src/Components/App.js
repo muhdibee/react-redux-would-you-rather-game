@@ -16,7 +16,6 @@ function App() {
         <Navigationbar />
         <Switch>
           <Route exact path='/' component= { WelcomePage } />
-          <Route exact path='/welcomePage' component= { WelcomePage } />
           <Route exact path='/home' component = { Home } />
           <Route path='/newQuestion' component= { NewQuestion } />
           <Route path='/questions/:id' component= {selectedQuestion}/>
