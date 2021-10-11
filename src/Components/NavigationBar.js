@@ -14,7 +14,7 @@ class Navigationbar extends Component {
         function logout(e){
             dispatch(removeAuthedUser());
             return (
-                <Redirect to='/' component={WelcomePage}/>
+                history.push('/')
                 )
             }
 

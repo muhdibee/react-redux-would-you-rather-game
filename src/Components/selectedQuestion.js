@@ -1,15 +1,48 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { _saveQuestionAnswer } from '../util/_DATA';
+import SelectedPoll from './SelectedPoll';
 
-class selectedQuestion extends Component {
+class SelectedQuestion extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            answer: '',
+            selectedPoll: false,
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+
+    handleChange(e) {
+        this.setState({
+            answer: e.target.value,
+        })
+        // console.log("answer",answer)
+    }
+
+    handleSubmit() {
+        let {authedUser, id, history} = this.props;
+        const answer = this.state.answer;
+        // console.log("form value:", answer);
+        // if (this.state.answer !== ''){
+        //     _saveQuestionAnswer ({ authedUser, id, answer});
+        //     console.log("Answered");
+        // }
+        this.setState({selectedPoll: true})
+    }
+
 
     render(){
 
         const { authedUser, users, questions, id} = this.props;
-        // const questionsId = Object.keys(questions);
-        console.log ("id:", id)
-
+        // console.log ("id:", id);
+        if(this.state.selectedPoll === true) {
+            return <Redirect to='/poll/:pollId' Component={() => <SelectedPoll pollId ={id} />} />
+        }
         return (
             <div className="container">
                 <div className= 'row'>
@@ -31,28 +64,24 @@ class selectedQuestion extends Component {
                                 <div className= 'card-body'>
                                     <div className=''>
                                     <h6>Would you rather?</h6><br/>
-                                        <form className='selected-question-form bg-light'>
-                                            <input type='radio' name= 'answer' value={`${questions[id].optionOne.text}`} /> {questions[id].optionOne.text} <br/>
-                                            <input type='radio' name= 'answer' value={`${questions[id].optionTwo.text}`} /> {questions[id].optionTwo.text} <br/><br/>
-                                            <button className=' btn '>Submit</button>
-                                        </form>
-
+                                        <div className='selected-question-form bg-light'  onChange={this.handleChange }>
+                                            <input type='radio' name= 'answer' value={`${Object.keys(questions[id])[3]}`} /> {questions[id].optionOne.text} <br/>
+                                            <input type='radio' name= 'answer' value={`${Object.keys(questions[id])[4]}`} /> {questions[id].optionTwo.text} <br/><br/>
+                                            <button className='btn' type='submit' onClick={this.handleSubmit}>Submit</button>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         )
     }
 }
 
 function mapStateToProps (state, props) {
-    const { id } = props.match.params;
+    const {id} = props.match.params;
 
     return {
         authedUser: state.authedUser,
@@ -62,4 +91,4 @@ function mapStateToProps (state, props) {
     }
 }
 
-export default connect(mapStateToProps)(selectedQuestion);
+export default connect(mapStateToProps)(SelectedQuestion);
