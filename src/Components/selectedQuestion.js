@@ -9,7 +9,7 @@ class SelectedQuestion extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            answer: '',
+            answer: "",
             selectedPoll: false,
         }
         this.handleChange = this.handleChange.bind(this);
@@ -27,22 +27,24 @@ class SelectedQuestion extends Component {
     handleSubmit() {
         let {authedUser, id, history} = this.props;
         const answer = this.state.answer;
-        // console.log("form value:", answer);
-        // if (this.state.answer !== ''){
-        //     _saveQuestionAnswer ({ authedUser, id, answer});
-        //     console.log("Answered");
-        // }
-        this.setState({selectedPoll: true})
+        console.log("answer:",answer )
+        console.log("answer TypeOf:", typeof answer )
+        const submitValue = {authedUser, id, answer}
+        if (this.state.answer !== ""){
+            console.log("Submit value:", submitValue);
+            _saveQuestionAnswer (submitValue);
+            // this.setState({selectedPoll: true})
+        }
     }
 
 
     render(){
 
         const { authedUser, users, questions, id} = this.props;
-        // console.log ("id:", id);
-        if(this.state.selectedPoll === true) {
-            return <Redirect to='/poll/:pollId' Component={() => <SelectedPoll pollId ={id} />} />
-        }
+
+        // if(this.state.selectedPoll === true) {
+        //     return <Redirect to='/poll/:pollId' Component={() => <SelectedPoll pollId ={id} />} />
+        // }
         return (
             <div className="container">
                 <div className= 'row'>
@@ -67,7 +69,7 @@ class SelectedQuestion extends Component {
                                         <div className='selected-question-form bg-light'  onChange={this.handleChange }>
                                             <input type='radio' name= 'answer' value={`${Object.keys(questions[id])[3]}`} /> {questions[id].optionOne.text} <br/>
                                             <input type='radio' name= 'answer' value={`${Object.keys(questions[id])[4]}`} /> {questions[id].optionTwo.text} <br/><br/>
-                                            <button className='btn' type='submit' onClick={this.handleSubmit}>Submit</button>
+                                            <button className='btn submit-btn' type='submit' onClick={this.handleSubmit}>Submit</button>
                                         </div>
                                     </div>
                                 </div>

@@ -55,16 +55,16 @@ class WelcomePage extends Component {
         )
     }
 
-    componentDidUpdate() {
+    // componentDidUpdate() {
 
-        const {authedUser} = this.props;
+    //     const {authedUser} = this.props;
 
-        if (authedUser){
-            return <Redirect to='/home'> {console.log("Authed User:", this.props.authedUser)}</Redirect>
+    //     if (authedUser){
+    //         return <Redirect to='/home'> {console.log("Authed User:", this.props.authedUser)}</Redirect>
 
-        }
+    //     }
 
-    }
+    // }
 
 }
 

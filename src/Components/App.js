@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Navigationbar from './NavigationBar';
 import WelcomePage from './WelcomePage';
 import Home from './Home'
@@ -7,6 +7,7 @@ import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard';
 import SelectedQuestion from './SelectedQuestion';
 import SelectedPoll from './SelectedPoll';
+import ErrorPage from './ErrorPage';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path='/newQuestion' component= { NewQuestion } />
           <Route path='/questions/:id' component= {SelectedQuestion}/>
           <Route path='/leaderBoard' component= { LeaderBoard } />
-          <Route path='/poll/:pollId' component= { SelectedPoll } />
+          <Route component= { ErrorPage } />
+          {/* <Route path='/poll/:pollId' component= { SelectedPoll } /> */}
         </Switch>
      </BrowserRouter>
     </Fragment>

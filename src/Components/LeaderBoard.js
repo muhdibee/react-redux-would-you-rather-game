@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import WelcomePage from './WelcomePage';
 
 class LeaderBoard extends React.Component {
     render() {
@@ -11,7 +12,12 @@ class LeaderBoard extends React.Component {
         if (authedUser) {
             return <div>LeaderBoard Page</div>
         }
-        else return <h6 className="text-center text-success text-opacity-50">Please Select a User to login. Click <Link to ='/'>here</Link> to login.</h6>
+        else return(
+            <div className='center'>
+                <h5 className="text-center text-success text-opacity-50">Please login to continue.</h5><br/>
+                <WelcomePage />
+            </div>
+        )
     }
 }
 

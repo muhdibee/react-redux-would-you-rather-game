@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { selectUnanswered, selectAnswered } from '../actions/isAnswered';
 import Question from './Question';
+import WelcomePage from './WelcomePage';
 
 class Home extends React.Component {
 
@@ -69,10 +70,10 @@ class Home extends React.Component {
                         </div>
                     )
         }
-        else return (
-            <div>
-                {/* <h2 className="text-center text-success text-opacity-50 mb-2">ERROR: Please <Link to ='/'>select</Link>  a user to continue.</h2> */}
-                <h6 className="text-center text-success text-opacity-50">Please Select a User to login. Click <Link to ='/'>here</Link> to login.</h6>
+        else return(
+            <div className='center'>
+                <h5 className="text-center text-success text-opacity-50">Please login to continue.</h5><br/>
+                <WelcomePage />
             </div>
         )
     }
