@@ -29,10 +29,11 @@ class SelectedQuestion extends Component {
         const answer = this.state.answer;
         console.log("answer:",answer )
         console.log("answer TypeOf:", typeof answer )
-        const submitValue = {authedUser, id, answer}
+        const submitValue = {authedUser, qid:id, answer}
         if (this.state.answer !== ""){
             console.log("Submit value:", submitValue);
             _saveQuestionAnswer (submitValue);
+            history.push('/');
             // this.setState({selectedPoll: true})
         }
     }

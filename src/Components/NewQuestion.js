@@ -8,23 +8,19 @@ class NewQuestion extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            optionOne: '',
-            optionTwo: ''
+            optionOneText: '',
+            optionTwoText: ''
         }
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        const {optionOne, optionTwo} = this.state;
-        const { authedUser } = this.props;
-        const question = {optionOne, optionTwo, authedUser}
-        console.log("Submitting:", question );
-        _saveQuestion ({optionOne, optionTwo, authedUser});
-
-        console.log('form values:', {
-            optionOne: optionOne,
-            optionTwo: optionTwo,
-        })
+        const {optionOneText, optionTwoText} = this.state;
+        const { authedUser, history } = this.props;
+        const question = {optionOneText, optionTwoText, author:authedUser}
+        _saveQuestion(question);
+        console.log('form values:', question);
+        history.push('/')
     }
 
     render() {
@@ -45,10 +41,10 @@ class NewQuestion extends React.Component {
                                     <h5>Create New Question</h5><br/>
                                     <form onSubmit={(e)=> this.handleSubmit(e)} className='bg-light'>
                                         <h6>Would you rather..</h6>
-                                        <input type='text' className='new-ques-input' onChange={(e)=> this.setState({optionOne: e.target.value})} value={this.state.optionOne} placeholder='Enter option one text here '/><br/>
-                                        <p><h6>OR</h6></p>
-                                        <input type='text' className='new-ques-input ' onChange={(e)=> this.setState({optionTwo: e.target.value})} value={this.state.optionTwo} placeholder='Enter option Two text here'/><br/>
-                                        <input type='submit' className='btn submit-btn' />
+                                        <input type='text' className='new-ques-input' onChange={(e)=> this.setState({optionOneText: e.target.value})} value={this.state.optionOneText} placeholder='Enter option one text here '/><br/>
+                                        <h6>OR</h6>
+                                        <input type='text' className='new-ques-input new-ques-input2' onChange={(e)=> this.setState({optionTwoText: e.target.value})} value={this.state.optionTwoText} placeholder='Enter option Two text here'/><br/>
+                                        <input type='submit' className='btn submit-btn mt-2' style={{width: "80%"}} />
                                     </form>
                                 </div>
                             </div>
