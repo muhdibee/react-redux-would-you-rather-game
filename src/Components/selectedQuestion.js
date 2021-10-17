@@ -29,9 +29,9 @@ class SelectedQuestion extends Component {
         const submitValue = {authedUser, qid:id, answer}
         if (this.state.answer !== ""){
             dispatch(handleSaveQuestionAnswer(submitValue)) // For some reasons I dont know why this doesn't work.
+            history.push(`/polls/${id}`); 
         }
     }
-    // history.push(`/polls/${id}`); // After this line
     //  history.push('/home');
 
 
