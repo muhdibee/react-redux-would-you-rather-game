@@ -10,6 +10,7 @@
 }
 .link-hover:hover {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .nav-link  {
@@ -122,7 +123,6 @@ img strong {
 
 .submit-btn{
   background-color: #1f9d6a;
-  /* color: white; */
 }
 
 .logout {

@@ -1,5 +1,5 @@
 import * as api from '../util/_DATA'
-import getQuestions from './questions'
+import {getQuestions} from './questions'
 import getUsers from './users'
 
 const handleInitialData = () => {

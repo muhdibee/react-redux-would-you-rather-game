@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { selectUnanswered, selectAnswered } from '../actions/isAnswered';
+import { handleSaveQuestionAnswer } from '../actions/questions';
 import { _saveQuestionAnswer } from '../util/_DATA';
-import SelectedPoll from './SelectedPoll';
 
 class SelectedQuestion extends Component {
 
@@ -10,7 +11,6 @@ class SelectedQuestion extends Component {
         super(props);
         this.state = {
             answer: "",
-            selectedPoll: false,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,35 +21,28 @@ class SelectedQuestion extends Component {
         this.setState({
             answer: e.target.value,
         })
-        // console.log("answer",answer)
     }
 
     handleSubmit() {
-        let {authedUser, id, history} = this.props;
+        let {authedUser, id, history, dispatch} = this.props;
         const answer = this.state.answer;
-        console.log("answer:",answer )
-        console.log("answer TypeOf:", typeof answer )
         const submitValue = {authedUser, qid:id, answer}
         if (this.state.answer !== ""){
-            console.log("Submit value:", submitValue);
-            _saveQuestionAnswer (submitValue);
-            history.push('/');
-            // this.setState({selectedPoll: true})
+            dispatch(handleSaveQuestionAnswer(submitValue)) // For some reasons I dont know why this doesn't work.
         }
     }
+    // history.push(`/polls/${id}`); // After this line
+    //  history.push('/home');
 
 
     render(){
 
-        const { authedUser, users, questions, id} = this.props;
+        const {users, questions, id} = this.props;
 
-        // if(this.state.selectedPoll === true) {
-        //     return <Redirect to='/poll/:pollId' Component={() => <SelectedPoll pollId ={id} />} />
-        // }
         return (
             <div className="container">
                 <div className= 'row'>
-                    <nav className='' aria-aria-label='breadcrumb'>
+                    <nav >
                         <ol className='breadcrumb bg-light'>
                             <li className='breadcrumb-item '><Link to='/home' >Home</Link></li>
                             <li className='breadcrumb-item active'>Question</li>
@@ -62,14 +55,14 @@ class SelectedQuestion extends Component {
                             <div className = 'card'>
                                 <div className = ' col-12 bg-success card-title question-card-title'>
                                     <img className="question-avatar col-12" alt='User-Avatar' src={users[questions[id].author].avatarURL} />
-                                    <strong className='text-light'>{users[questions[id].author].name} asks.</strong>
+                                    <h6 style={{display:"inline"}} className='text-light'>{users[questions[id].author].name} asks.</h6>
                                 </div>
                                 <div className= 'card-body'>
                                     <div className=''>
-                                    <h6>Would you rather?</h6><br/>
+                                    <h4>Would you rather?</h4><br/>
                                         <div className='selected-question-form bg-light'  onChange={this.handleChange }>
-                                            <input type='radio' name= 'answer' value={`${Object.keys(questions[id])[3]}`} /> {questions[id].optionOne.text} <br/>
-                                            <input type='radio' name= 'answer' value={`${Object.keys(questions[id])[4]}`} /> {questions[id].optionTwo.text} <br/><br/>
+                                            <h6><input className='link-hover' type='radio' name= 'answer' value={`${Object.keys(questions[id])[3]}`} />&nbsp;&nbsp;{ questions[id].optionOne.text}</h6> OR
+                                            <h6><input className='link-hover' type='radio' name= 'answer' value={`${Object.keys(questions[id])[4]}`} />&nbsp;&nbsp;{ questions[id].optionTwo.text}</h6><br/>
                                             <button className='btn submit-btn' type='submit' onClick={this.handleSubmit}>Submit</button>
                                         </div>
                                     </div>

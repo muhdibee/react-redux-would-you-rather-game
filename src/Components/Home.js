@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import { Link } from 'react-router-dom';
 import { selectUnanswered, selectAnswered } from '../actions/isAnswered';
+import Poll from './Poll';
 import Question from './Question';
 import WelcomePage from './WelcomePage';
 
@@ -10,14 +10,11 @@ class Home extends React.Component {
     render() {
 
         const { authedUser, users, questions, isAnswered, dispatch} = this.props;
+        dispatch(selectUnanswered);
 
         if (authedUser) {
             const questionsId = Object.keys(questions);
             const answeredQuestionsId = Object.keys(users[authedUser].answers);
-            console.log("authedUser", authedUser)
-            console.log("users", users);
-            console.log("questionsId", questionsId)
-            console.log("answeredQuestionsId", answeredQuestionsId)
 
                     return (
                         <div className = 'wrapper'>
@@ -39,15 +36,11 @@ class Home extends React.Component {
                                                         questionsId.map((questionId) => {
                                                             if(answeredQuestionsId.includes(questionId)){
                                                                 return(
-                                                                    <Link className="text-dark logo link-hover " to ={`/questions/${questionId}`}>
-                                                                        <Question className="question" keyId={questionId} questionId = {questionId} />
-                                                                    </Link>
+                                                                    <Poll className="question" questionId = {questionId} /> //Bring back the Id to here.
                                                                 )
                                                             }else {
                                                                 return null
                                                             }
-
-
                                                         })
                                                     }
                                                 </div>
@@ -59,11 +52,9 @@ class Home extends React.Component {
                                                         questionsId.map((questionId) => {
                                                             if(answeredQuestionsId.includes(questionId)) return null
                                                             else return (
-                                                                <Link className="text-dark logo link-hover " to ={`/questions/${questionId}`}>
-                                                                    <Question className="question" keyId={questionId} questionId = {questionId} />
-                                                                </Link>
+                                                                <Question className="question" keyId={questionId} questionId = {questionId} /> //Bring back the Id to here.
                                                             )
-                                                            })
+                                                        })
                                                     }
                                                 </div>
                                             )

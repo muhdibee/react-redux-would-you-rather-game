@@ -18,12 +18,12 @@ function App() {
         <Navigationbar />
         <Switch>
           <Route exact path='/' component= { WelcomePage } />
-          <Route exact path='/home' component = { Home } />
+          <Route path='/home' component = { Home } />
           <Route path='/newQuestion' component= { NewQuestion } />
-          <Route path='/questions/:id' component= {SelectedQuestion}/>
           <Route path='/leaderBoard' component= { LeaderBoard } />
+          <Route path='/questions/:id' component= {SelectedQuestion}/>
+          <Route path='/polls/:id' component= { SelectedPoll } />
           <Route component= { ErrorPage } />
-          {/* <Route path='/poll/:pollId' component= { SelectedPoll } /> */}
         </Switch>
      </BrowserRouter>
     </Fragment>

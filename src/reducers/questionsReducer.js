@@ -7,6 +7,14 @@ const questionsReducer = (state = {}, action) => {
             return {
                 ...state, ...action.questions
             }
+        case actionTypes.SAVE_QUESTION:
+            return {
+                ...state, 
+            }
+        case actionTypes.SAVE_QUESTION_ANSWER:
+            return {
+                ...state,
+            }
         default: return state;
     }
 }
