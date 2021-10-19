@@ -1,7 +1,6 @@
 *{
   padding: 0;
   margin:0;
-  /* color: #1f9d6a; */
 }
 .nav-wrapper {
   border-bottom: 1px ridge teal;
@@ -24,23 +23,18 @@
   ;
 }
 
-
 .nav-active {
   color:teal;
   border-bottom: 1px ridge teal;
-  /* background-color:#0e4830; */
-  /* border-radius: 5%; */
   padding: 0.5ch
 }
 
-.QuestionTypes {
-  margin: 0px auto;
-  display: inline;
-}
 .QuestionTypeSpan {
   margin: 1rem;
   margin-bottom: 90px;
+  color: #1f9d6a;
 }
+
 .QuestionTypeSpan:hover {
   border-bottom: 2px ridge;
   cursor: pointer;
@@ -57,10 +51,6 @@
  li {
   list-style-type: none;
  }
-
-.QuestionTypes span {
-  color: #1f9d6a;
-}
 
 .center {
   text-align: center;
@@ -146,9 +136,9 @@ img strong {
   height: auto;
 }
 
-.new-ques-input2 {
+/* .new-ques-input2 {
   margin-top: 0px !important
-}
+} */
  .dinline {
    display: inline;
  }

@@ -7,11 +7,13 @@ import WelcomePage from './WelcomePage';
 
 const FilterQuestion = ({dispatch}) => {
     return (
-        <div className= 'row'>
-            <div className= 'QuestionTypes'>
-                <span className='QuestionTypeSpan' onClick={()=> dispatch(selectUnanswered())}>Unanswered Questions </span>
-                <span>|</span>
-                <span className='QuestionTypeSpan' onClick={()=> dispatch(selectAnswered())}>Answered Questions</span>
+        <div className="container">
+            <div className= 'row'>
+                <div className= 'QuestionTypes'>
+                    <span className='QuestionTypeSpan' onClick={()=> dispatch(selectUnanswered())}>Unanswered Questions </span>
+                    <span>|</span>
+                    <span className='QuestionTypeSpan' onClick={()=> dispatch(selectAnswered())}>Answered Questions</span>
+                </div>
             </div>
         </div>
     )
@@ -22,7 +24,6 @@ class Home extends React.Component {
     render() {
 
         const { authedUser, users, questionsId, isAnswered, dispatch} = this.props;
-        dispatch(selectUnanswered);
 
         if (authedUser) {
             const answeredQuestionsId = Object.keys(users[authedUser].answers);
@@ -56,7 +57,7 @@ class Home extends React.Component {
                                                 questionsId.map((questionId) => {
                                                     if(answeredQuestionsId.includes(questionId)) return null
                                                     else return (
-                                                        <Question className="question" questionId = {questionId} /> 
+                                                        <Question className="question" questionId = {questionId} />
                                                     )
                                                 })
                                             }

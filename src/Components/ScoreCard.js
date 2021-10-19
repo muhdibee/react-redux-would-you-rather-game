@@ -28,20 +28,20 @@ class ScoreCard extends React.Component {
                                                 <div className="card">
                                                     <div className="card-body">
                                                         <div className= "dblock text-left justify-content-between">
-                                                            <h6 className="dinline col-8">Answered questions</h6> <h6 className="dinline col">{answeredQuestions}</h6>
+                                                            <h6 className="dinline col-8">Answered questions:</h6> <h6 className="dinline col">{answeredQuestions}</h6>
                                                         </div>
                                                         <hr style={{border: "1px ridge"}}/>
                                                         <div className= "dblock text-left justify-content-between">
-                                                            <h6 className="dinline col-8">Created questions</h6> <h6 className="dinline col mr-auto">{createdQuestions}</h6>
+                                                            <h6 className="dinline col-8">Created questions:</h6>&nbsp;&nbsp;&nbsp;&nbsp; <h6 className="dinline col mr-auto">{createdQuestions}</h6>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="col-4 col-lg-3">
                                                 <div className="card">
-                                                    <div className="card-title text-white" style={{backgroundColor: "#1f9d6a"}}>Score</div>
+                                                    <h6 className="card-title text-white" style={{backgroundColor: "#1f9d6a"}}>Score</h6>
                                                     <div className="card-body">
-                                                        <div className=" col-6 center py-1 my-2 text-white" style={{borderRadius: "50%", backgroundColor: "#1f9d6a" }}>{score}</div>
+                                                        <div className=" col-6 center py-1 my-2 text-success" style={{border: "1px #1f9d6a ridge", borderRadius: "50%", backgroundColor: "", fontWeight:"bold" }}>{score}</div>
                                                     </div>
                                                 </div>
                                             </div>

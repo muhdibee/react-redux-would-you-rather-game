@@ -9,7 +9,7 @@ const questionsReducer = (state = {}, action) => {
             }
         case actionTypes.SAVE_QUESTION:
             return {
-                ...state, 
+                ...state, [action.question.id]: action.question
             }
         case actionTypes.SAVE_QUESTION_ANSWER:
             return {

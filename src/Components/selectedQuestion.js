@@ -24,12 +24,13 @@ class SelectedQuestion extends Component {
     }
 
     handleSubmit() {
-        let {authedUser, id, history} = this.props;
+        const {authedUser, id, history, dispatch} = this.props;
         const answer = this.state.answer;
         const submitValue = {authedUser, qid:id, answer}
         if (this.state.answer !== ""){
-            _saveQuestionAnswer(submitValue)
-            .then(history.push(`/polls/${id}`))
+            dispatch(handleSaveQuestionAnswer(submitValue))
+            .then(history.push(`/`),
+            dispatch(selectAnswered()))
         }
     }
 
