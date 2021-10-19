@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { _saveQuestion } from '../util/_DATA';
-import { selectUnanswered, selectAnswered } from '../actions/isAnswered';
-import { saveQuestion, saveQuestionFunc } from '../actions/questions';
+// import { selectUnanswered, selectAnswered } from '../actions/isAnswered';
+// import { saveQuestion, saveQuestionFunc } from '../actions/questions';
 import WelcomePage from './WelcomePage';
 
 class NewQuestion extends React.Component {
@@ -18,12 +17,11 @@ class NewQuestion extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const {optionOneText, optionTwoText} = this.state;
-        const { authedUser, history, dispatch } = this.props;
+        const { authedUser, history } = this.props;
         const question = {optionOneText, optionTwoText, author:authedUser}
-        dispatch(saveQuestionFunc(question));
-        console.log('saveQuestionFuncs:', question);
-        history.push('/');
-        dispatch(selectUnanswered);
+        _saveQuestion(question)
+        .then(() => history.push('/'))
+
     }
 
     render() {

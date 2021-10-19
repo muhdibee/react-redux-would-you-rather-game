@@ -9,7 +9,7 @@ class Navigationbar extends Component {
 
     render() {
 
-        const { authedUser, users, questions, questionId, dispatch, history} = this.props;
+        const { authedUser, users, dispatch, history} = this.props;
 
         function logout(e){
             dispatch(removeAuthedUser());

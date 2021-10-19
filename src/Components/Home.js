@@ -5,65 +5,68 @@ import Poll from './Poll';
 import Question from './Question';
 import WelcomePage from './WelcomePage';
 
+const FilterQuestion = ({dispatch}) => {
+    return (
+        <div className= 'row'>
+            <div className= 'QuestionTypes'>
+                <span className='QuestionTypeSpan' onClick={()=> dispatch(selectUnanswered())}>Unanswered Questions </span>
+                <span>|</span>
+                <span className='QuestionTypeSpan' onClick={()=> dispatch(selectAnswered())}>Answered Questions</span>
+            </div>
+        </div>
+    )
+}
+
 class Home extends React.Component {
 
     render() {
 
-        const { authedUser, users, questions, isAnswered, dispatch} = this.props;
+        const { authedUser, users, questionsId, isAnswered, dispatch} = this.props;
         dispatch(selectUnanswered);
 
         if (authedUser) {
-            const questionsId = Object.keys(questions);
             const answeredQuestionsId = Object.keys(users[authedUser].answers);
 
-                    return (
-                        <div className = 'wrapper'>
-                            <div className = 'container'>
-                                <div className= 'row'>
-                                    <div className= 'QuestionTypes'>
-                                        <span className='QuestionTypeSpan' onClick={()=> dispatch(selectUnanswered())}>Unanswered Questions </span>
-                                        <span>|</span>
-                                        <span className='QuestionTypeSpan' onClick={()=> dispatch(selectAnswered())}>Answered Questions</span>
-                                    </div>
-                                </div>
-                                <div className= 'row'>
-                                    <ul className = 'questions col-12 col-md-8 col-lg-6 my-3'>
-                                        {
-                                            isAnswered
-                                            ? ( <div>
-                                                    <h4 className="text-center text-success"><i>ANSWERED QUESTIONS</i></h4>
-                                                    {
-                                                        questionsId.map((questionId) => {
-                                                            if(answeredQuestionsId.includes(questionId)){
-                                                                return(
-                                                                    <Poll className="question" questionId = {questionId} /> //Bring back the Id to here.
-                                                                )
-                                                            }else {
-                                                                return null
-                                                            }
-                                                        })
+                return (
+                    <div className = ''>
+                        <FilterQuestion dispatch={dispatch} />
+                        <div className= 'row'>
+                            <ul className = 'questions col-12 col-md-8 col-lg-6 my-3'>
+                                {
+                                    isAnswered
+                                    ? ( <div>
+                                            <h4 className="text-center text-success"><i>ANSWERED QUESTIONS</i></h4>
+                                            {
+                                                questionsId.map((questionId) => {
+                                                    if(answeredQuestionsId.includes(questionId)){
+                                                        return(
+                                                            <Poll className="question" questionId = {questionId} />
+                                                        )
+                                                    }else {
+                                                        return null
                                                     }
-                                                </div>
-                                            )
-                                            :(
-                                                <div>
-                                                    <h4 className="text-center text-success"><i>UNANSWERED QUESTIONS</i></h4>
-                                                    {
-                                                        questionsId.map((questionId) => {
-                                                            if(answeredQuestionsId.includes(questionId)) return null
-                                                            else return (
-                                                                <Question className="question" keyId={questionId} questionId = {questionId} /> //Bring back the Id to here.
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
-                                            )
-                                        }
-                                    </ul>
-                                </div>
-                            </div>
+                                                })
+                                            }
+                                        </div>
+                                    )
+                                    :(
+                                        <div>
+                                            <h4 className="text-center text-success"><i>UNANSWERED QUESTIONS</i></h4>
+                                            {
+                                                questionsId.map((questionId) => {
+                                                    if(answeredQuestionsId.includes(questionId)) return null
+                                                    else return (
+                                                        <Question className="question" questionId = {questionId} /> 
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    )
+                                }
+                            </ul>
                         </div>
-                    )
+                    </div>
+                )
         }
         else return(
             <div className='center'>
@@ -75,10 +78,11 @@ class Home extends React.Component {
 }
 
 function mapStateToProps (state) {
+    const questions = state.questions;
     return {
         authedUser: state.authedUser,
         users: state.users,
-        questions: state.questions,
+        questionsId: Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp),
         isAnswered: state.isAnswered,
     }
 }

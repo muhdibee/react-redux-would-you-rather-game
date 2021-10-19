@@ -54,6 +54,10 @@
   text-decoration: none;
 }
 
+ li {
+  list-style-type: none;
+ }
+
 .QuestionTypes span {
   color: #1f9d6a;
 }
@@ -144,4 +148,11 @@ img strong {
 
 .new-ques-input2 {
   margin-top: 0px !important
+}
+ .dinline {
+   display: inline;
+ }
+
+ .dblock {
+  display: block;
 }

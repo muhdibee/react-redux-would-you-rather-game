@@ -24,16 +24,14 @@ class SelectedQuestion extends Component {
     }
 
     handleSubmit() {
-        let {authedUser, id, history, dispatch} = this.props;
+        let {authedUser, id, history} = this.props;
         const answer = this.state.answer;
         const submitValue = {authedUser, qid:id, answer}
         if (this.state.answer !== ""){
-            dispatch(handleSaveQuestionAnswer(submitValue)) // For some reasons I dont know why this doesn't work.
-            history.push(`/polls/${id}`); 
+            _saveQuestionAnswer(submitValue)
+            .then(history.push(`/polls/${id}`))
         }
     }
-    //  history.push('/home');
-
 
     render(){
 
