@@ -6,11 +6,7 @@ class Question extends Component {
 
     render(){
 
-        const { authedUser, users, questions, questionId: Id} = this.props;
-        const questionsId = Object.keys(questions);
-        const answeredQuestionsId = Object.keys(users[authedUser].answers);
-
-
+        const { users, questions, questionId: Id} = this.props;
 
         return (
             <li key={Id}>
@@ -21,7 +17,7 @@ class Question extends Component {
                     </div>
                     <div className= 'card-body'>
                         <h6 className='center'>Would you rather?</h6>
-                        <li className='center'>{questions[Id].optionOne.text}...</li><br/>
+                        <ul><li className='center'>{questions[Id].optionOne.text}...</li></ul><br/>
                         <Link className="text-dark" to ={`/questions/${Id}`}>
                             <button className='text-success mx-4 link-hover' style={{width:"90%",  border: "1px #1f9d6a ridge"}}>View Question</button>
                         </Link>

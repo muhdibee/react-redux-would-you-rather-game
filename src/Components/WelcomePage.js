@@ -24,9 +24,6 @@ class WelcomePage extends Component {
             return <Redirect to ='/home' component={ Home }/>
         }
 
-
-
-
         return (
             <div className= 'container'>
                 <div className='row justify-content-center'>
@@ -42,11 +39,10 @@ class WelcomePage extends Component {
                                         <select className='center welcome-form-select mb-1' value={authedUser} onChange={(e) => setUser(e)}>
                                             <option className="text-white" disabled value =''>Select a User...</option>
                                             <option value ="sarahedo" >Sarah Edo</option>
-                                            <option value ="tylermcginnis">Tyler McGinnis</option>{console.log("state:", this.props.state)}
-                                            <option value ="muhammad">Muhammad Ibrahim</option> {console.log("Authed User:", authedUser)}
+                                            <option value ="tylermcginnis">Tyler McGinnis</option>
+                                            <option value ="muhammad">Muhammad Ibrahim</option>
                                         </select>
                                 </div>
-                                {/* <button onClick= {() => console.log("State:", this.props.state)}>state</button> */}
                             </div>
                         </div>
                     </div>
@@ -54,18 +50,6 @@ class WelcomePage extends Component {
             </div>
         )
     }
-
-    // componentDidUpdate() {
-
-    //     const {authedUser} = this.props;
-
-    //     if (authedUser){
-    //         return <Redirect to='/home'> {console.log("Authed User:", this.props.authedUser)}</Redirect>
-
-    //     }
-
-    // }
-
 }
 
 function mapStateToProps (state) {
@@ -74,7 +58,5 @@ function mapStateToProps (state) {
         authedUser: state.authedUser,
     }
 }
-
-// function (state)
 
 export default withRouter(connect(mapStateToProps)(WelcomePage));

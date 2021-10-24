@@ -53,14 +53,16 @@ class Home extends React.Component {
                                     :(
                                         <div>
                                             <h4 className="text-center text-success"><i>UNANSWERED QUESTIONS</i></h4>
-                                            {
-                                                questionsId.map((questionId) => {
-                                                    if(answeredQuestionsId.includes(questionId)) return null
-                                                    else return (
-                                                        <Question className="question" questionId = {questionId} />
-                                                    )
-                                                })
-                                            }
+                                            <ul>
+                                                {
+                                                    questionsId.map((questionId) => {
+                                                        if(answeredQuestionsId.includes(questionId)) return null
+                                                        else return (
+                                                            <Question className="question" questionId = {questionId} />
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
                                         </div>
                                     )
                                 }
@@ -83,6 +85,7 @@ function mapStateToProps (state) {
     return {
         authedUser: state.authedUser,
         users: state.users,
+        questions: questions,
         questionsId: Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp),
         isAnswered: state.isAnswered,
     }

@@ -23,14 +23,20 @@ class SelectedQuestion extends Component {
         })
     }
 
+    afterSubmit() {
+        const {history, id, dispatch} = this.props;
+        history.push('/')     /* When I redirect here it updates the state*/
+        //history.push(`/polls/${id}`) /* When I redirect here it doesn't update the state and does not work as expected*/
+        dispatch(selectAnswered())
+    }
+
     handleSubmit() {
-        const {authedUser, id, history, dispatch} = this.props;
+        const {authedUser, id, dispatch} = this.props;
         const answer = this.state.answer;
         const submitValue = {authedUser, qid:id, answer}
         if (this.state.answer !== ""){
             dispatch(handleSaveQuestionAnswer(submitValue))
-            .then(history.push(`/`),
-            dispatch(selectAnswered()))
+            .then(() => this.afterSubmit())
         }
     }
 

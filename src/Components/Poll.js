@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 class Poll extends Component {
 
     render(){
-
         const { users, questions, questionId } = this.props;
-        // const questionsId = Object.keys(questions);
 
         return (
             <li key={questionId}>

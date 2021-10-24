@@ -23,7 +23,8 @@ class SelectedPoll extends Component {
                 <div>
                     <div>
                         <h6 className="" style= {{ display: "inline", marginRight: "10px" }}>Would you rather {text}?</h6>
-                        <i className="fa fa-check-circle text-success"> your vote</i>
+                        {/* <i className="fa fa-check-circle text-success"> your vote</i> */}
+                        <i className="text-success" > your vote</i>
                     </div>
                     <div className="progress" style={{marginTop: "10px"}}>
                         <div className="progress-bar bg-success" role="progressbar" style={{width: `${percentage}%`}} aria-valuenow="" aria-valuemin="0" aria-valuemax="100">{percentage}%</div>

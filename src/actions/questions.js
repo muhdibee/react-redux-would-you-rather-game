@@ -23,15 +23,16 @@ export const saveQuestionFunc = (question) => {
     }
 }
 
-export const saveQuestionAnswer = () => {
+export const saveQuestionAnswer = (submitValue) => {
     return {
         type: actionTypes.SAVE_QUESTION_ANSWER,
+        payload: submitValue
     }
 }
 
 export const handleSaveQuestionAnswer = (submitValue) => {
     return (dispatch) => {
         return _saveQuestionAnswer(submitValue)
-        .then(() => dispatch(saveQuestionAnswer()))
+        .then(() => dispatch(saveQuestionAnswer(submitValue)))
     }
 }
