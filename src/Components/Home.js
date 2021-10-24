@@ -32,7 +32,7 @@ class Home extends React.Component {
                     <div className = ''>
                         <FilterQuestion dispatch={dispatch} />
                         <div className= 'row'>
-                            <ul className = 'questions col-12 col-md-8 col-lg-6 my-3'>
+                            <div className = 'questions col-12 col-md-8 col-lg-6 my-3'>
                                 {
                                     isAnswered
                                     ? ( <div>
@@ -66,7 +66,7 @@ class Home extends React.Component {
                                         </div>
                                     )
                                 }
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 )

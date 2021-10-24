@@ -7,29 +7,27 @@ class LeaderBoard extends React.Component {
     render() {
 
         const {authedUser, users } = this.props;
-        const usersId = Object.keys(users);
-        const allScores = []
-
-        usersId.map((userId) => {
-            const answeredQuestions = Object.keys(users[userId].answers).length
-            const createdQuestions = users[userId].questions.length
-            const score =answeredQuestions+createdQuestions;
-            allScores.push(score)
-        });
-        allScores.sort((a,b)=> b-a)
-
+        const usersId = Object.keys(users).sort((a,b) => (users[b].questions+Object.keys(users[b].answers).length - users[a].questions+Object.keys(users[a].answers).length))
 
         if (authedUser) {
+
             return (
-                <div className="">
-                    <div className='card-wrapper col-10 col-md-8 col-lg-6 center'>
-                        <ul>
-                            {allScores.map((score) => <ScoreCard score={score} />)}
-                        </ul>
-                    </div>
-
+                <div className='card-wrapper col-10 col-md-8 col-lg-6 center'>
+                    <ul>
+                        {
+                            usersId.map((userId) => {
+                                const nOfAnswers = Object.keys(users[userId].answers).length;
+                                const nOfQuestions = users[userId].questions.length;
+                                const score = nOfAnswers+nOfQuestions;
+                                return (
+                                    <li key={userId}>
+                                        <ScoreCard userId= {userId} nOfAnswers= {nOfAnswers} nOfQuestions= {nOfQuestions} score={score}/>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
                 </div>
-
             )
         }
         else return(
