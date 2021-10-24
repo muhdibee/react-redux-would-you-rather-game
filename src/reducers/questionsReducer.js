@@ -15,7 +15,7 @@ const questionsReducer = (state = {}, action) => {
             return {
                 ...state, [action.payload.qid]: {
                     ...state[action.payload.qid], [action.payload.answer]: {
-                        ...state[action.payload.qid].answer, votes: state[action.payload.qid][action.payload.answer].votes.concat([action.payload.authedUser])
+                        ...state[action.payload.qid][action.payload.answer], votes: state[action.payload.qid][action.payload.answer].votes.concat([action.payload.authedUser])
                     }
                 }
             }

@@ -9,12 +9,9 @@ const usersReducer = (state = {}, action) => {
             }
 
         case actionTypes.SAVE_QUESTION_ANSWER:
-            // return {
-            //     ...state,
-            // }
             return {
-                ...state, [action.payload[action.payload.authedUser]]: {
-                    ...state[action.payload[action.payload.authedUser]], answers: {
+                ...state, [action.payload.authedUser]: {
+                    ...state[action.payload.authedUser], answers: {
                         ...state[action.payload.authedUser].answers, [action.payload.qid]: action.payload.answer
                     }
                 }

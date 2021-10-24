@@ -25,8 +25,7 @@ class SelectedQuestion extends Component {
 
     afterSubmit() {
         const {history, id, dispatch} = this.props;
-        history.push('/')     /* When I redirect here it updates the state*/
-        //history.push(`/polls/${id}`) /* When I redirect here it doesn't update the state and does not work as expected*/
+        history.push(`/polls/${id}`) /* When I redirect here it doesn't update the state and does not work as expected*/
         dispatch(selectAnswered())
     }
 
