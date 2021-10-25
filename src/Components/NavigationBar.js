@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, NavLink, withRouter, Redirect, Route } from 'react-router-dom';
+import { Link, NavLink, withRouter} from 'react-router-dom';
 import { removeAuthedUser } from '../actions/authedUser';
-import LeaderBoard from './LeaderBoard';
-import WelcomePage from './WelcomePage';
 
 class Navigationbar extends Component {
 
@@ -11,7 +9,7 @@ class Navigationbar extends Component {
 
         const { authedUser, users, dispatch, history} = this.props;
 
-        function logout(e){
+        function logout(){
             dispatch(removeAuthedUser());
             return (
                 history.push('/')
@@ -22,7 +20,7 @@ class Navigationbar extends Component {
             <div className='mb-3 nav-wrapper text-success'>
                 <div className='nav-container container py-3'>
                     <div className='row'>
-                        <span className='col-10 col-md-8 col-lg-4'><h4><Link to='/' exact className='text-success logo link-hover'>Would You Rather</Link></h4></span>
+                        <span className='col-10 col-md-8 col-lg-4'><Link to='/' className='text-success logo link-hover'><h4>Would You Rather</h4></Link></span>
                         <nav className='text-success ml-auto mr-auto pt-5  top-nav'>
                             <ul className='top-nav-ul'>
                                 <li className='nav-link'><NavLink to='/home' activeClassName='nav-active' className='text-success nav-link'> Home</NavLink></li>
@@ -35,7 +33,7 @@ class Navigationbar extends Component {
                             <span className="mb-1">
                                 <div className = "center"><img src={users[authedUser].avatarURL} alt="user avatar" style={{width:"50px", height: "50px", borderRadius:"50%"}} /></div>
                                 <i>{users[authedUser].name}</i>
-                                <i className="text-succes logout" onClick = {(e) => logout(e)}> - Logout</i>
+                                <i className="text-succes logout" onClick = {() => logout()}> - Logout</i>
                             </span>
                             : ""
                         }

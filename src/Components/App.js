@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navigationbar from './NavigationBar';
 import WelcomePage from './WelcomePage';
 import Home from './Home'

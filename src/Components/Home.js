@@ -29,7 +29,7 @@ class Home extends React.Component {
             const answeredQuestionsId = Object.keys(users[authedUser].answers);
 
                 return (
-                    <div className = ''>
+                    <div>
                         <FilterQuestion dispatch={dispatch} />
                         <div className= 'row'>
                             <div className = 'questions col-12 col-md-8 col-lg-6 my-3'>
@@ -37,17 +37,20 @@ class Home extends React.Component {
                                     isAnswered
                                     ? ( <div>
                                             <h4 className="text-center text-success"><i>ANSWERED QUESTIONS</i></h4>
-                                            {
-                                                questionsId.map((questionId) => {
-                                                    if(answeredQuestionsId.includes(questionId)){
-                                                        return(
-                                                            <Poll className="question" questionId = {questionId} />
-                                                        )
-                                                    }else {
-                                                        return null
-                                                    }
-                                                })
-                                            }
+                                            <ul>
+                                                {
+                                                    questionsId.map((questionId) => {
+
+                                                        if(answeredQuestionsId.includes(questionId)){
+                                                            return(
+                                                                <li key ={questionId}>
+                                                                    <Poll className="question" questionId = {questionId} />
+                                                                </li>
+                                                            )
+                                                        }
+                                                    })
+                                                }
+                                            </ul>
                                         </div>
                                     )
                                     :(
@@ -56,9 +59,12 @@ class Home extends React.Component {
                                             <ul>
                                                 {
                                                     questionsId.map((questionId) => {
+                                                        
                                                         if(answeredQuestionsId.includes(questionId)) return null
                                                         else return (
-                                                            <Question className="question" questionId = {questionId} />
+                                                            <li key={questionId}>
+                                                                <Question className="question" questionId = {questionId} />
+                                                            </li>
                                                         )
                                                     })
                                                 }

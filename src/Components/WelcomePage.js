@@ -34,14 +34,14 @@ class WelcomePage extends Component {
                             </div>
                             <div className=' card-body' >
                                 <div className="center">
-                                    <img alt="Welcome-page" className="would-you-rather-image img-fluid mb-1" src="https://parade.com/wp-content/uploads/2019/12/Would-You-Rather_Questions.jpg"/>
-                                        <i className="select-User text-success">Login...</i> <br/>
-                                        <select className='center welcome-form-select mb-1' value={authedUser} onChange={(e) => setUser(e)}>
-                                            <option className="text-white" disabled value =''>Select a User...</option>
-                                            <option value ="sarahedo" >Sarah Edo</option>
-                                            <option value ="tylermcginnis">Tyler McGinnis</option>
-                                            <option value ="muhammad">Muhammad Ibrahim</option>
-                                        </select>
+                                    <img alt="Welcome-page" className="would-you-rather-image img-fluid mb-2" src="https://parade.com/wp-content/uploads/2019/12/Would-You-Rather_Questions.jpg"/>
+                                    <h5><i className="select-User text-success">Login...</i></h5>
+                                    <select className='center welcome-form-select my-2' style={{width: "80%"}} value={authedUser} onChange={(e) => setUser(e)}>
+                                        <option className="text-white" disabled value =''>Select a User...</option>
+                                        <option value ="sarahedo" >Sarah Edo</option>
+                                        <option value ="tylermcginnis">Tyler McGinnis</option>
+                                        <option value ="muhammad">Muhammad Ibrahim</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

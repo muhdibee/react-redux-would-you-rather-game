@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectUnanswered, selectAnswered } from '../actions/isAnswered';
+import { selectAnswered } from '../actions/isAnswered';
 import { handleSaveQuestionAnswer } from '../actions/questions';
-import { _saveQuestionAnswer } from '../util/_DATA';
 
 class SelectedQuestion extends Component {
 
