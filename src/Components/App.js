@@ -19,8 +19,8 @@ function App() {
         <Switch>
           <Route exact path='/' component= { WelcomePage } />
           <Route path='/home' component = { Home } />
-          <Route path='/newQuestion' component= { NewQuestion } />
-          <Route path='/leaderBoard' component= { LeaderBoard } />
+          <Route path='/add' component= { NewQuestion } />
+          <Route path='/leaderboard' component= { LeaderBoard } />
           <Route path='/questions/:id' component= {SelectedQuestion}/>
           <Route path='/polls/:id' component= { SelectedPoll } />
           <Route component= { ErrorPage } />

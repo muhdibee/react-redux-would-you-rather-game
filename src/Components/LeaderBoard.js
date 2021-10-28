@@ -7,7 +7,7 @@ class LeaderBoard extends React.Component {
     render() {
 
         const {authedUser, users } = this.props;
-        const usersId = Object.keys(users).sort((a,b) => ((users[b].questions+Object.keys(users[b].answers).length) - (users[b].questions+Object.keys(users[b].answers).length)))
+        const usersId = Object.keys(users).sort((a,b) => ((users[b].questions.length+Object.keys(users[b].answers).length) - (users[a].questions.length+Object.keys(users[a].answers).length)))
 
         if (authedUser) {
 

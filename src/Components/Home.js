@@ -47,7 +47,7 @@ class Home extends React.Component {
                                                                     <Poll className="question" questionId = {questionId} />
                                                                 </li>
                                                             )
-                                                        }
+                                                        }else return null
                                                     })
                                                 }
                                             </ul>
@@ -59,7 +59,7 @@ class Home extends React.Component {
                                             <ul>
                                                 {
                                                     questionsId.map((questionId) => {
-                                                        
+
                                                         if(answeredQuestionsId.includes(questionId)) return null
                                                         else return (
                                                             <li key={questionId}>

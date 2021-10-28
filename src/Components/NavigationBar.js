@@ -24,8 +24,8 @@ class Navigationbar extends Component {
                         <nav className='text-success ml-auto mr-auto pt-5  top-nav'>
                             <ul className='top-nav-ul'>
                                 <li className='nav-link'><NavLink to='/home' activeClassName='nav-active' className='text-success nav-link'> Home</NavLink></li>
-                                <li className='nav-link'><NavLink to='/newQuestion' activeClassName='nav-active' className='text-success nav-link'> New Question</NavLink></li>
-                                <li className='nav-link'><NavLink to='/leaderBoard' activeClassName='nav-active' className='text-success nav-link'>Leader  Board</NavLink></li>
+                                <li className='nav-link'><NavLink to='/add' activeClassName='nav-active' className='text-success nav-link'> New Question</NavLink></li>
+                                <li className='nav-link'><NavLink to='/leaderboard' activeClassName='nav-active' className='text-success nav-link'>Leader  Board</NavLink></li>
                             </ul>
                         </nav>
                         {
